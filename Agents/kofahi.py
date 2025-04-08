@@ -2,8 +2,8 @@ import json
 from agent import Agent
 
 class Kofahi(Agent):
-    def __init__(self, api_key):
-        super().__init__("Kofahi", api_key)
+    def __init__(self, api_key, azure_endpoint=None, deployment_name=None):
+        super().__init__("Kofahi", api_key, azure_endpoint, deployment_name)
 
     def handle_error(self, error_message, context, log_file_path=None):
         system_message = "You are Kofahi, an experienced and expert in Linux OS. Your role is to provide quick fixes and explanations for errors encountered during the execution of commands. Respond with the fix in JSON format, using the 'fix' key as an array of command strings to be executed in the correct order, and the 'explanation' key to provide the reason for the error and any necessary context."

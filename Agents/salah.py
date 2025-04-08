@@ -3,9 +3,10 @@ import pexpect
 import time
 from agent import Agent
 import subprocess
+
 class Salah(Agent):
-    def __init__(self, api_key):
-        super().__init__("Salah", api_key)
+    def __init__(self, api_key, azure_endpoint=None, deployment_name=None):
+        super().__init__("Salah", api_key, azure_endpoint, deployment_name)
 
     def execute_commands(self, commands, target_ip, scan_description, kofahi, ammar, rakan, log_file_path=None):
         output = ""

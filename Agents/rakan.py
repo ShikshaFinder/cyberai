@@ -2,8 +2,8 @@ import json
 from agent import Agent
 
 class Rakan(Agent):
-    def __init__(self, api_key):
-        super().__init__("Rakan", api_key)
+    def __init__(self, api_key, azure_endpoint=None, deployment_name=None):
+        super().__init__("Rakan", api_key, azure_endpoint, deployment_name)
 
     def monitor_output(self, target_ip, scan_description, command_output, executed_commands, pending_commands, log_file_path=None):
         system_message = "You are Rakan, an expert in monitoring command execution output. Your role is to analyze the provided command output and determine if the executed command requires input or if it is still running a previous command or loading up. If input is required, indicate that it is time to provide input. If the command is still running or loading up, indicate that no input is needed at the moment. Respond with your analysis in JSON format, using the 'input_needed' key as a boolean value."

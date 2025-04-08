@@ -2,8 +2,8 @@ import json
 from agent import Agent
 
 class Ammar(Agent):
-    def __init__(self, api_key):
-        super().__init__("Ammar", api_key)
+    def __init__(self, api_key, azure_endpoint=None, deployment_name=None):
+        super().__init__("Ammar", api_key, azure_endpoint, deployment_name)
 
     def generate_strategy(self, target_ip, scan_description, approved_strategy=None, feedback=None, log_file_path=None):
         system_message = "You are Ammar, an experienced penetration tester. Your role is to generate a comprehensive strategy to conduct a successful and comprehensive vulnerability scan based on the provided target IP and scan description. The strategy should include a set of relevant Linux terminal commands to gather information and detect potential vulnerabilities. Respond with the strategy in JSON format, using the 'strategy' key as an array of command strings. Ensure the commands are tailored to the specific target and scan description, and are ready to be executed without any manual modifications. Include any necessary explanation or context in the 'description' key. Always start with recon, and ask Hassan, the senior what command should you execute next based on the result. Note, Always include your name and role at the end of each Description."

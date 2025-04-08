@@ -2,8 +2,8 @@ import json
 from agent import Agent
 
 class Sajed(Agent):
-    def __init__(self, api_key):
-        super().__init__("Sajed", api_key)
+    def __init__(self, api_key, azure_endpoint=None, deployment_name=None):
+        super().__init__("Sajed", api_key, azure_endpoint, deployment_name)
 
     def generate_report(self, target_ip, scan_description, findings_file, feedback=None, log_file_path=None):
         with open(findings_file, "r") as f:

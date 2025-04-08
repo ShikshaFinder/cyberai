@@ -7,8 +7,18 @@ from Agents.kofahi import Kofahi
 from Agents.rakan import Rakan
 from Agents.salah import Salah
 from Agents.sajed import Sajed
+from dotenv import load_dotenv
 
-API_KEY = os.getenv("OPENAI_API_KEY") or 'YOUR_API_KEY'
+# Load environment variables
+load_dotenv()
+
+# Get Azure OpenAI configuration from environment variables
+API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
+AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
+
+if not all([API_KEY, AZURE_ENDPOINT, DEPLOYMENT_NAME]):
+    raise ValueError("Missing required Azure OpenAI configuration in environment variables")
 
 def initialize_log_file(target_ip, scan_description):
     log_directory = "./Logs"
@@ -30,16 +40,16 @@ def initialize_log_file(target_ip, scan_description):
     return log_file_path
 
 def main():
-    target_ip = "REPLACE TARGET"
+    target_ip = "104.22.26.77"
     scan_description = "EX: find if this target is vulnerable to any exploit on port 22, only using nmap, nothing more"
     log_file_path = initialize_log_file(target_ip, scan_description)
     
-    ammar = Ammar(API_KEY)
-    hassan = Hassan(API_KEY)
-    kofahi = Kofahi(API_KEY)
-    rakan = Rakan(API_KEY)
-    salah = Salah(API_KEY)
-    sajed = Sajed(API_KEY)
+    ammar = Ammar(api_key=API_KEY, azure_endpoint=AZURE_ENDPOINT, deployment_name=DEPLOYMENT_NAME)
+    hassan = Hassan(api_key=API_KEY, azure_endpoint=AZURE_ENDPOINT, deployment_name=DEPLOYMENT_NAME)
+    kofahi = Kofahi(api_key=API_KEY, azure_endpoint=AZURE_ENDPOINT, deployment_name=DEPLOYMENT_NAME)
+    rakan = Rakan(api_key=API_KEY, azure_endpoint=AZURE_ENDPOINT, deployment_name=DEPLOYMENT_NAME)
+    salah = Salah(api_key=API_KEY, azure_endpoint=AZURE_ENDPOINT, deployment_name=DEPLOYMENT_NAME)
+    sajed = Sajed(api_key=API_KEY, azure_endpoint=AZURE_ENDPOINT, deployment_name=DEPLOYMENT_NAME)
     
     findings = []
 
