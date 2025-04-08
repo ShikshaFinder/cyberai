@@ -40,7 +40,7 @@ def initialize_log_file(target_ip, scan_description):
     return log_file_path
 
 def main():
-    target_ip = "104.22.26.77"
+    target_ip = "34.202.94.66"
     scan_description = "Analyze the given target for any potential vulnerabilities. If any vulnerabilities are detected, identify the corresponding exploits and generate a comprehensive report detailing the findings. Clearly document the exploit, its impact, and the steps required to mitigate it. Additionally, demonstrate the exploit in a controlled manner to validate the vulnerability before presenting it to the client"
     log_file_path = initialize_log_file(target_ip, scan_description)
     
