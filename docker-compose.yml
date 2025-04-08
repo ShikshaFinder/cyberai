@@ -5,7 +5,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    container_name: upgraded
+    container_name: nightangels
     env_file:
       - .env
     environment:

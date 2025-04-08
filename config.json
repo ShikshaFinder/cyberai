@@ -6,11 +6,75 @@
         },
         {
             "domain": "toloka.ai",
-            "description": "Make a good faith effort to avoid privacy violations, destruction of data, interruption or degradation of our businesses. Only interact with accounts you own or with the explicit permission of the account holder. Do not use the vulnerability for any purpose, such as publicly disclosing or making a profit, other than receiving a reward through this Program. Follow HackerOne's disclosure guidelines. Any public disclosure of any vulnerabilities is prohibited without our consent. We will not approve public disclosure requests until the vulnerability has been resolved. Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward. Submit only one vulnerability per submission unless you need to chain vulnerabilities to provide impact regarding any of the vulnerabilities. In case we receive duplicate reports of a specific vulnerability, only the first report is eligible for a reward. By submitting a report, you agree to be bound by these rules."
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
         },
         {
             "domain": "rubygems.org",
-            "description": "Reporting a security issue. Please ensure this is a security issue for the RubyGems client or the RubyGems.org service. This tracker is only for security issues with RubyGems, Bundler, or the RubyGems.org website. For all vulnerabilities with individual gems, follow our guide on reporting security issues with others' gems. If it's a security issue with the Ruby on Rails framework, see the Rails Security guide. Please note: the rubygems-developers mailing list, the rubygems.org mailing list, and the Bundler slack are public areas. If escalating to these places, please do not discuss your issue, simply say that you're trying to get a hold of someone from the security team. Thanks in advance for responsibly disclosing your security issue."
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "agoric.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "flipkart.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "coda.io",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "fireblocks.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "gocardless.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "grammarly.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "alscotoday.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "23andme.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "mercadolibre.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "justworks.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "lichess.org",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "zooplus.de",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "neon.tech",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "whoop.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "whoop.com/",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "www.wickr.com",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
         }
     ],
     "global_settings": {
