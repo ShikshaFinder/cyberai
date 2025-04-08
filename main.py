@@ -41,7 +41,7 @@ def initialize_log_file(target_ip, scan_description):
 
 def main():
     target_ip = "104.22.26.77"
-    scan_description = "EX: find if this target is vulnerable to any exploit on port 22, only using nmap, nothing more"
+    scan_description = "Analyze the given target for any potential vulnerabilities. If any vulnerabilities are detected, identify the corresponding exploits and generate a comprehensive report detailing the findings. Clearly document the exploit, its impact, and the steps required to mitigate it. Additionally, demonstrate the exploit in a controlled manner to validate the vulnerability before presenting it to the client"
     log_file_path = initialize_log_file(target_ip, scan_description)
     
     ammar = Ammar(api_key=API_KEY, azure_endpoint=AZURE_ENDPOINT, deployment_name=DEPLOYMENT_NAME)
