@@ -5,7 +5,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    container_name: vuln-scanner
+    container_name: upgraded
     env_file:
       - .env
     environment:
