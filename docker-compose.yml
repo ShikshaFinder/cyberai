@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  vuln-scanner:
+    build: .
+    container_name: vuln-scanner
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./Logs:/app/Logs
+    restart: unless-stopped 

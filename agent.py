@@ -1,11 +1,22 @@
-from openai import OpenAI
+from openai import AzureOpenAI
 from colorama import init, Fore, Style
 import json
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 class Agent:
-    def __init__(self, name, api_key):
-        self.name = name
-        self.client = OpenAI(api_key=api_key)
+    def __init__(self, name=None, api_key=None, azure_endpoint=None, deployment_name=None):
+        # Use environment variables if parameters are not provided
+        self.name = name or os.getenv('AGENT_NAME')
+        self.deployment_name = deployment_name or os.getenv('AZURE_OPENAI_DEPLOYMENT_NAME')
+        self.client = AzureOpenAI(
+            api_key=api_key or os.getenv('AZURE_OPENAI_API_KEY'),
+            api_version="2024-02-15-preview",  # Use the latest API version
+            azure_endpoint=azure_endpoint or os.getenv('AZURE_OPENAI_ENDPOINT')
+        )
         self.chat_histories = {}
 
     def get_chat_history(self, recipient):
@@ -71,7 +82,7 @@ class Agent:
         ]
         return messages
 
-    def generate_response(self, recipient, user_message, system_message, model="gpt-4-0125-preview", response_format=None):
+    def generate_response(self, recipient, user_message, system_message, response_format=None):
         chat_history = self.get_chat_history(recipient)
         self.add_to_chat_history(recipient, "user", user_message)
         messages = [
@@ -81,13 +92,13 @@ class Agent:
         ]
         if response_format:
             response = self.client.chat.completions.create(
-                model=model,
+                model=self.deployment_name,  # Use the Azure deployment name
                 response_format=response_format,
                 messages=messages
             )
         else:
             response = self.client.chat.completions.create(
-                model=model,
+                model=self.deployment_name,  # Use the Azure deployment name
                 messages=messages
             )
         assistant_response = response.choices[0].message.content
