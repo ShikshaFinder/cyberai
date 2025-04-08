@@ -1,0 +1,26 @@
+{
+    "sites": [
+        {
+            "domain": "example.com",
+            "description": "Example website for testing purposes"
+        },
+        {
+            "domain": "github.com",
+            "description": "GitHub main website"
+        },
+        {
+            "domain": "microsoft.com",
+            "description": "Microsoft corporate website"
+        }
+    ],
+    "global_settings": {
+        "concurrent_scans": 1,
+        "report_format": "markdown",
+        "log_level": "info",
+        "output_directory": "./Scans",
+        "notification_settings": {
+            "email_notifications": false,
+            "webhook_url": ""
+        }
+    }
+}
