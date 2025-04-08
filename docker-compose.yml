@@ -2,10 +2,23 @@ version: '3.8'
 
 services:
   vuln-scanner:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: vuln-scanner
+    env_file:
+      - .env
     environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+      - AZURE_OPENAI_DEPLOYMENT_NAME=${AZURE_OPENAI_DEPLOYMENT_NAME}
+      - AGENT_NAME=${AGENT_NAME}
     volumes:
       - ./Logs:/app/Logs
-    restart: unless-stopped 
+      - ./:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 
