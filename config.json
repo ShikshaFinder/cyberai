@@ -75,6 +75,10 @@
         {
             "domain": "www.wickr.com",
             "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
+        },
+        {
+            "domain": "hemi.xyz",
+            "description": "Vulnerability scanning target with bounty program. Focus on RCE, SQLi, XSS, and other security vulnerabilities."
         }
     ],
     "global_settings": {
