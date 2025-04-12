@@ -1,0 +1,17 @@
+{
+    "agent": "",
+    "request": {
+        "type": "",
+        "context": "",
+        "details": {}
+    },
+    "response": {
+        "status": "",
+        "data": {}
+    },
+    "timestamp": 0,
+    "environment": {
+        "auth_tokens": {},
+        "external_requirements": {}
+    }
+}

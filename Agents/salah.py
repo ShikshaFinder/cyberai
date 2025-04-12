@@ -3,10 +3,37 @@ import pexpect
 import time
 from agent import Agent
 import subprocess
+import os
 
 class Salah(Agent):
     def __init__(self, api_key, azure_endpoint=None, deployment_name=None):
         super().__init__("Salah", api_key, azure_endpoint, deployment_name)
+        self.com_file = "com.json"
+
+    def read_communication(self):
+        """Read communication from com.json file"""
+        if os.path.exists(self.com_file):
+            try:
+                with open(self.com_file, 'r') as f:
+                    return json.load(f)
+            except json.JSONDecodeError:
+                return {}
+        return {}
+
+    def write_communication(self, data):
+        """Write communication to com.json file"""
+        with open(self.com_file, 'w') as f:
+            json.dump(data, f, indent=2)
+
+    def request_additional_info(self, message):
+        """Request additional information through com.json"""
+        communication = {
+            "agent": "Salah",
+            "request": message,
+            "timestamp": time.time()
+        }
+        self.write_communication(communication)
+        return self.read_communication()
 
     def execute_commands(self, commands, target_ip, scan_description, kofahi, ammar, rakan, log_file_path=None):
         output = ""
@@ -27,7 +54,7 @@ class Salah(Agent):
                 start_time = time.time()
                 while True:
                     try:
-                        child.expect('\r\n')  # Wait for a maximum of 10 seconds for each line of output
+                        child.expect('\r\n')
                         output_line = child.before
                         command_output += output_line + "\n"
                         
@@ -43,8 +70,17 @@ class Salah(Agent):
                                     print(f"Input: {input_command}")
                                     child.sendline(input_command)
                                 else:
-                                    command_index += 1
-                                    break
+                                    # Request additional information if needed
+                                    response = self.request_additional_info({
+                                        "context": "Input needed but not generated",
+                                        "command_output": command_output,
+                                        "pending_commands": pending_commands
+                                    })
+                                    if response and "input" in response:
+                                        child.sendline(response["input"])
+                                    else:
+                                        command_index += 1
+                                        break
                             start_time = time.time()
                             command_output = ""
                             
